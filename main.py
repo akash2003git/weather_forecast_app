@@ -1,6 +1,8 @@
+# Modules used
 import streamlit as st
 import plotly.express as px
 from backend import get_data
+
 
 # Add title, text input, slider, select box, and sub header
 st.title("Weather forecast for the next few Days")
@@ -10,6 +12,7 @@ days = st.slider("Forecast Days", min_value=1, max_value=5,
 option = st.selectbox("Select data to view",
                       ("Temperature", "Sky"))
 st.subheader(f"{option} for the next {days} days in {place}")
+
 
 if place:
 
@@ -25,6 +28,7 @@ if place:
             st.plotly_chart(figure)
 
         if option == "Sky":
+            # Create set of weather images
             images = {"Clear": "images/clear.png", "Clouds": "images/cloud.png",
                       "Rain": "images/rain.png", "Snow": "images/snow.png"}
             sky_conditions = [dict["weather"][0]["main"] for dict in filtered_data]
@@ -32,4 +36,5 @@ if place:
             st.image(image_paths, width=85)
 
     except KeyError:
+        # Error message
         st.write("<p style='color:red; font-size:20px;'>Place does not exist</p>", unsafe_allow_html=True)
