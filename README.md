@@ -15,7 +15,7 @@ A simple weather forecast app built with Streamlit.
 ### Step 1: Clone the Repository
 Open your terminal and run:
 ```bash
-git clone https://github.com/yourusername/your-repo-name.git
+git clone https://github.com/akash2003git/weather_forecast_app
 ```
 
 ### Step 2: Navigate to the Project Directory
